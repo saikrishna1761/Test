@@ -1,0 +1,22 @@
+import numpy as np
+import matplotlib.pyplot as plt 
+a= np.array([0,1,0,2,1,0,1,3,2,1,2,1])
+
+def rain(arr):
+    sm=0
+    for j in range(arr.max()):
+        brr=np.where(arr<=0,0,1)
+        c=list(str(int(str(int(''.join([str(i) for i in brr])))[::-1]))).count('0')
+        sm+=c
+        arr=arr-1
+    return sm
+print(rain(a))
+
+fig = plt.figure(figsize = (16, 4))
+plt.bar(np.arange(len(a)),a,width=1,color='black')
+
+a=np.random.randint(0,5,11)
+print('Heights of the Blocks',a)
+print('Units of water stored',rain(a))
+fig = plt.figure(figsize = (16, 4))
+plt.bar(np.arange(len(a)),a,width=1,color='black')
